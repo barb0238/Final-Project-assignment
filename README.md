@@ -1,5 +1,6 @@
 To use
 install node.js
 in project folder
-    "npm i express"
+    npm init -y
+    npm i express
     node server.js
