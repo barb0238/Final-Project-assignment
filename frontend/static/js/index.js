@@ -1,12 +1,13 @@
 import Home from "./Home.js";
 import Services from "./Services.js";
+import ScheduleaCall from "./ScheduleaCall.js";
 
 
 const router = async () => {
     const routes =[
         {path: "/", view: Home},
         {path: "/services", view: Services},
-        {path: "/scheduleacall", view:  () => console.log("schedule")}
+        {path: "/scheduleacall", view:  ScheduleaCall}
     ];
 
     // Testing each route until it finds a match
