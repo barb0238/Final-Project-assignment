@@ -2,3 +2,13 @@
 .rightimage{
     float:right;
 }
+
+.classborder {
+    border: 2px solid #000;
+    padding: 10px;
+}
+
+.legend {
+    display: inline-block !important;
+    width: fit-content;
+}

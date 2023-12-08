@@ -5,6 +5,7 @@ export default class  extends AbstractView {
         super();
         this.setTitle("Schedule A Call");
     }
+    
 
     async getHtml() {
         return `
@@ -20,15 +21,55 @@ export default class  extends AbstractView {
 
             </div>
             
-            <h1>Insert form here</h1>
+            <br>Fill out the form below and we will get back to you as soon as
+            <br>we can to schedule a call with our sales team!
+        </p>
 
-            <input id="toggleSwitch" type="image" src="../static/images/yestoggle.png" height="50" alt="toggle switch"><br>
+        <form id="scheduleCallForm">
+            <label for="businessName">Business Name:</label>
+            <input type="text" id="businessName" name="businessName">
+            <br>
+            <label for="phoneNumber">Phone number 613-123-1234:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <br>
+            <label for="email">Email (required):</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <br>
+
+            <fieldset class="classborder">
+
+                <legend class="legend"><h2>What would you like to talk about</h2></legend>
+                <input type="checkbox" id="awarenessLab" name="talkAbout" value="awarenessLab">
+                <label for="awarenessLab">Awareness lab days and workshops</label><br>
+                <input type="checkbox" id="inviteSpeaker" name="talkAbout" value="inviteSpeaker">
+                <label for="inviteSpeaker">Invite a speaker with disabilities to your event</label><br>
+                <input type="checkbox" id="usabilityTesting" name="talkAbout" value="usabilityTesting">
+                <label for="usabilityTesting">Usability testing</label>
+            </fieldset>
+            <br>
+
+            <label for="eventDescription">Please tell us about your event</label>
+            <br>
+            <div id="eventDescTextArea">
+                <textarea id="eventDescription" name="eventDescription"  placeholder="text area"></textarea>
+            </div>
+            <br>
+            <label for="toggleSwitch">Receive emails about updates and services:</label>
+            <input id="toggleSwitch" name="toggleSwitch" type="image" src="../static/images/yestoggle.png" height="50" alt="toggle switch"><br>
             <a href="https://www.freepik.com/free-vector/realistic-buttons-pack_15365518.htm#query=switch%20button&position=0&from_view=keyword&track=ais&uuid=29d71e9c-a075-46b4-be03-accc0baded87">Image by coolvector</a> on Freepik <br><br>
-            <button id="scheduleCallButton">Schedule a call</button>
+            <br>
+            <br>
+            <input type="submit" id="scheduleCallButton" value="Schedule a call">
+        </form>
+
+
+            
         `;
     }
 
     afterRender(){
+        //handles the schedule a call message popup
         const submitArea = document.getElementById("submitMessageArea");
         const scheduleButton = document.getElementById("scheduleCallButton");
 
@@ -36,12 +77,22 @@ export default class  extends AbstractView {
             submitArea.innerHTML = "Thank you for scheduling a call!";
         });
 
+        //handles the text area popup when "invite a speaker to your event" is checked
+        const form = document.getElementById("scheduleCallForm");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            submitArea.innerHTML = "Thank you for scheduling a call!";
+        })
+
+        //image toggle switch functionality
         const toggleSwitch = document.getElementById('toggleSwitch');
         const yesToggleImage = "../static/images/yestoggle.png";
         const noToggleImage = "../static/images/notoggle.png";
         let yesToggled = true;
 
         toggleSwitch.addEventListener('click', () => {
+            //when clicked, if its toggled yes, it switches image to the "no" toggle
             if(yesToggled){
                 toggleSwitch.src = noToggleImage;
             } else {
