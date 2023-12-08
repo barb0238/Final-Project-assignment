@@ -21,6 +21,9 @@ export default class  extends AbstractView {
             </div>
             
             <h1>Insert form here</h1>
+
+            <input id="toggleSwitch" type="image" src="../static/images/yestoggle.png" height="50" alt="toggle switch"><br>
+            <a href="https://www.freepik.com/free-vector/realistic-buttons-pack_15365518.htm#query=switch%20button&position=0&from_view=keyword&track=ais&uuid=29d71e9c-a075-46b4-be03-accc0baded87">Image by coolvector</a> on Freepik <br><br>
             <button id="scheduleCallButton">Schedule a call</button>
         `;
     }
@@ -30,7 +33,22 @@ export default class  extends AbstractView {
         const scheduleButton = document.getElementById("scheduleCallButton");
 
         scheduleButton.addEventListener("click", () => {
-            submitArea.innerHTML = "testing";
+            submitArea.innerHTML = "Thank you for scheduling a call!";
         });
+
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        const yesToggleImage = "../static/images/yestoggle.png";
+        const noToggleImage = "../static/images/notoggle.png";
+        let yesToggled = true;
+
+        toggleSwitch.addEventListener('click', () => {
+            if(yesToggled){
+                toggleSwitch.src = noToggleImage;
+            } else {
+                toggleSwitch.src = yesToggleImage;
+            }
+            yesToggled = !yesToggled;
+        })
+        
     }
 }
