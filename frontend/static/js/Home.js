@@ -43,6 +43,17 @@ export default class extends AbstractView {
             font-weight: bold;
             }
 
+            .grid-container {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-template-rows: auto auto;
+            }
+            .grid-container > div {
+                text-align: left;
+                padding: 20px 20px;
+                font-size: 18px;
+            }
+
             .close:hover,
             .close:focus {
             color: #000;
@@ -72,6 +83,29 @@ export default class extends AbstractView {
                     •	Google.ca <br>
                     •	Government of Canada <br>                
                     </div>
+                </div>
+            </div>
+
+            <!-- Grid Blurb with links -->
+            <div class="grid-container">
+                <div class="item1-1">Our Approach</div>
+                <div class="item1-2">Services</div>
+                <div class="item1-3">Testimonials</div>
+
+                <div class="item2-1">Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
+                    <br><br><br><br>
+                <a href="https://www.google.com/search/howsearchworks/our-approach/">Learn more</a>
+                </div>
+                <div class="item2-2">Promote accessibility awareness and enhance the user experience. <br>
+                •	Empathy lab days and workshops<br>
+                •	Go beyond WCAG compliance!<br>
+                •	Inspirational speakers.<br>
+                <br><br><br><br>
+                <a href="https://www.elevenways.be/en/services">Learn more</a>
+                </div>
+                <div class="item2-3">Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.
+                <br><br><br><br><br>
+                <a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial">Learn more</a>
                 </div>
             </div>
         `;
