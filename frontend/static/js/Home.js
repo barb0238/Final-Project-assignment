@@ -66,13 +66,13 @@ export default class extends AbstractView {
             <p>Empower Ability Labs is a hub for learning and empathy-building. We are on a mission to foster understanding and promote inclusive digital experiences for all. We offer a range of services designed to promote accessibility awareness, drive inclusivity, and enhance the user experience. And help you find answers on how do people with disabilities use technology and navigate the digital world? What tools do they employ?</p>
             
             <!-- Trigger/Open The Modal -->
-            <button id="myBtn" type="button" onclick="afterRender()">Meet The Empower Community!</button>
+            <button id="myBtn" aria-controls="myModal" aria-expanded="false">Meet The Empower Community!</button>
 
             <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
+            <div id="myModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-content" tabindex="-1">
+                    <h2 class="close">&times;</h2>
+                    <button class="close" aria-label="close modal">&times;</button>
                     <p>
                         We get an aha! moments from product managers who try our services for the first time. We offered many lab days, workshops and offered usability testing services to many companies and organizations including:
                     </p>
@@ -122,18 +122,29 @@ export default class extends AbstractView {
         var modal = document.getElementById("myModal");
         var btn = document.getElementById("myBtn");
         var span = document.getElementsByClassName("close")[0];
+        var modalContent = document.querySelector(".modal-content");
 
         btn.onclick = function() {
             modal.style.display = "block";
+            modal.setAttribute('aria-hidden', 'false');
+            btn.setAttribute('aria-expanded', 'true');
+            modalContent= document.querySelector(".modal-content"
+            );
         }
 
         span.onclick = function() {
             modal.style.display = "none";
+            modal.setAttribute('aria-hidden', 'true');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();// Attempts at making it accessible :/
         }
 
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+                modal.setAttribute('aria-hidden', 'true');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.focus();
             }
         }
     }
