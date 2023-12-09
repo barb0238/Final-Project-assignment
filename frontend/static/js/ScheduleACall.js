@@ -57,7 +57,7 @@ export default class  extends AbstractView {
                 </div>
             <br>
             <label for="toggleSwitch">Receive emails about updates and services:</label>
-            <input id="toggleSwitch" name="toggleSwitch" type="image" src="../static/images/yestoggle.png" height="35" alt="toggle switch"><br>
+            <input id="toggleSwitch" name="toggleSwitch" type="image" src="../static/images/yestoggle.png" height="35" alt="toggle switch to recieve emails"><br>
             <a href="https://www.freepik.com/free-vector/realistic-buttons-pack_15365518.htm#query=switch%20button&position=0&from_view=keyword&track=ais&uuid=29d71e9c-a075-46b4-be03-accc0baded87">Image by coolvector</a> on Freepik <br><br>
             <br>
             <br>
