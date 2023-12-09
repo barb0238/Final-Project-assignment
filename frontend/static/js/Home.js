@@ -71,7 +71,7 @@ export default class extends AbstractView {
             <!-- The Modal -->
             <div id="myModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                 <div class="modal-content" tabindex="-1">
-                    <h2 class="close">&times;</h2>
+                    <!--<h2 class="close" aria-label="close modal">&times;</h2>-->
                     <button class="close" aria-label="close modal">&times;</button>
                     <p>
                         We get an aha! moments from product managers who try our services for the first time. We offered many lab days, workshops and offered usability testing services to many companies and organizations including:
